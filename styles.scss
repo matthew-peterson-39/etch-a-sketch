@@ -55,6 +55,9 @@
         justify-content: center;
         align-items: center;
     }
+    #grid:hover {
+        cursor: cell;
+    }
     
     #grid>div {
         border: 1px solid black;

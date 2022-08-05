@@ -99,6 +99,10 @@ h1 {
           align-items: center;
 }
 
+#grid:hover {
+  cursor: cell;
+}
+
 #grid > div {
   border: 1px solid black;
   height: 25px;
