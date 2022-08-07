@@ -18,10 +18,12 @@
         <div id="buttons">
           <button onclick="set_color('black')">Black</button>
           <button onclick="set_color('white')">White</button>
+          <label for="selected">Selected Color</label>
           <input 
             type="color" 
-            id="color_picker"
+            id="color-picker"
             onclick="set_color(this.value)"
+            name="selected"
         />
           <button onclick="reset_grid()">Reset</button>
           <input
@@ -30,6 +32,7 @@
             max="100"
             value="16"
             onchange="change_size(this.value), set_size(this.value)"
+            name="slider"
         />
           <button>Set Size</button>
         </div>

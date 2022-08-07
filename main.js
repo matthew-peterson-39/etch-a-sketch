@@ -42,4 +42,5 @@ function get_current_size() {
 
 function set_color(new_color) {
     current_color = new_color;
+    document.getElementById('color-picker').style.backgroundColor = `${new_color}`;
 }
