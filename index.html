@@ -16,17 +16,21 @@
       <div id="content">
         <div id="grid-container"></div>
         <div id="buttons">
-          <button>Black</button>
-          <button>White</button>
-          <button>Random</button>
-          <button>Reset</button>
+          <button onclick="set_color('black')">Black</button>
+          <button onclick="set_color('white')">White</button>
+          <input 
+            type="color" 
+            id="color_picker"
+            onclick="set_color(this.value)"
+        />
+          <button onclick="reset_grid()">Reset</button>
           <input
             type="range"
             min="16"
             max="100"
             value="16"
-            onchange="change_size(this.value)"
-          />
+            onchange="change_size(this.value), set_size(this.value)"
+        />
           <button>Set Size</button>
         </div>
       </div>
