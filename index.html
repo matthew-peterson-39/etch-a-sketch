@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="main.js" defer></script>
-    <title>Document</title>
-</head>
-<body> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Etch-A-Sketch</title>
+  </head>
 
-    <div class="header">
-        <h1>Etch-A-Sketch</h1>
-            <div id="line-break"></div>
+  <body>
+    <div class="flex-container">
+      <div class="title"></div>
+      <h1>Etch-A-Sketch</h1>
+      <div id="line-break"></div>
+      <div id="content">
+        <div id="grid-container"></div>
+        <div id="buttons">
+          <button>Black</button>
+          <button>White</button>
+          <button>Random</button>
+          <button>Reset</button>
+          <input
+            type="range"
+            min="16"
+            max="100"
+            value="16"
+            onchange="change_size(this.value)"
+          />
+          <button>Set Size</button>
+        </div>
+      </div>
     </div>
-
-   <div class="main-content">
-    <div id="draw">
-    
-        <div id="grid"></div>
-    
-        <button id="clear">clear</button>
-    
-    </div>
-    
-    <div id="directions">
-        <h1>How to Play:</h1>
-        <h3>The blinking grid marks the current location.</h3>
-        <h3>The following keys control movement: </h3>
-            <p>Right and Left arrow key to move horizontally.</p>
-            <p>Up and Down arrow key to move horizontally.</p>
-            <p>Just like a real Etch-A-Sketch, the only way to fix mistakes is to start over!</p>
-            <p>Good Luck!</p>
-    </div>
-</div>
-
-</body>
+  </body>
+  <script src="main.js"></script>
 </html>
