@@ -1,6 +1,11 @@
 const DEFAULT_COLOR = 'black';
 const DEFAULT_SIZE = 16;
 
+const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+    const hex = x.toString(16)
+    return hex.length === 1 ? '0' + hex : hex
+  }).join('')
+
 var current_size = DEFAULT_SIZE;
 var current_color = DEFAULT_COLOR;
 
@@ -42,5 +47,13 @@ function get_current_size() {
 
 function set_color(new_color) {
     current_color = new_color;
-    document.getElementById('color-picker').style.backgroundColor = `${new_color}`;
+    document.getElementById('color-picker').value = `${current_color}`;
+}
+
+function random() {
+    let r = Math.random() * (256 - 0) + 0;
+    let g = Math.random() * (256 - 0) + 0;
+    let b = Math.random() * (256 - 0) + 0;
+    let hex = rgbToHex(r,g,b);
+    return hex;
 }
