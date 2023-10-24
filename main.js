@@ -3,22 +3,24 @@ const DEFAULT_SIZE = 16;
 var rainbowSelected = false;
 var enableDraw = false;
 var showGrid = true;
+var current_size = DEFAULT_SIZE;
+var current_color = DEFAULT_COLOR;
 
+// converts rgb to hexidecimal 
 const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
     const hex = x.toString(16)
     return hex.length === 1 ? '0' + hex : hex
   }).join('');
 
-var current_size = DEFAULT_SIZE;
-var current_color = DEFAULT_COLOR;
 
 function draw_grid(size) {
     let grid_container = document.querySelector('#grid-container');
     let cells = document.querySelectorAll('#grid-cell');
-    cells.forEach((div) => div.remove());
+    cells.forEach((div) => div.remove());   //Handles the case if cells existed(ie. changing size after drawing)
     grid_container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid_container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     
+    // For each cell in the set size create a cell dive and set its style/listeners
     for (let i = 0; i < (size * size); i++) {
         let cell = document.createElement("div");
         cell.id = 'grid-cell';
@@ -42,7 +44,7 @@ function draw_grid(size) {
                 cell.style.backgroundColor = `${current_color}`
             }});
 
-        grid_container.insertAdjacentElement('beforeend', cell);
+        grid_container.insertAdjacentElement('beforeend', cell);    //appends cell to grid container
     };
 };
 
@@ -74,7 +76,7 @@ function rainbow_select(new_value) {
 
 function set_color(new_color) {
     if(rainbowSelected) {
-        current_color = random();
+        current_color = random_color();
     }
     else {    
         current_color = new_color;
@@ -82,10 +84,11 @@ function set_color(new_color) {
     document.getElementById('color-picker').value = `${current_color}`;
 }
 
-function random() {
-    let r = Math.random() * (256 - 0) + 0;
-    let g = Math.random() * (256 - 0) + 0;
-    let b = Math.random() * (256 - 0) + 0;
+function random_color() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return rgbToHex(r,g,b);
 }
 
 function hide_grid_lines() {

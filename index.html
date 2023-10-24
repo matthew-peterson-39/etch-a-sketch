@@ -23,11 +23,11 @@
               id="color-picker"
               onclick="console.log(this.value)"
               onchange="set_color(this.value)"
-              name="selected"
-          />
+              name="selected"/>
             <button onclick="rainbow_select(false), set_color('black')">Black</button>
             <button onclick="rainbow_select(false), set_color('#ffffff')">White</button>
-            <button onclick="rainbow_select(true), random()">Rainbow</button>
+            <button onclick="rainbow_select(true), set_color('random')">Random</button>
+            <button onclick="rainbow_select(false), set_color('shade')">Shade</button>
             <button onclick="hide_grid_lines()">Show Grid</button>
           </div>
           <button onclick="reset_grid()">Reset</button>
