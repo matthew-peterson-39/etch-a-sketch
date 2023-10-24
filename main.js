@@ -1,3 +1,4 @@
+
 const DEFAULT_COLOR = 'black';
 const DEFAULT_SIZE = 16;
 var rainbowSelected = false;
@@ -9,8 +10,7 @@ var current_color = DEFAULT_COLOR;
 // converts rgb to hexidecimal 
 const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
     const hex = x.toString(16)
-    return hex.length === 1 ? '0' + hex : hex
-  }).join('');
+    return hex.length === 1 ? '0' + hex : hex }).join('');
 
 
 function draw_grid(size) {
@@ -46,10 +46,23 @@ function draw_grid(size) {
 
         grid_container.insertAdjacentElement('beforeend', cell);    //appends cell to grid container
     };
-};
+}
 
 //Draw initial grid at load time.
 draw_grid(DEFAULT_SIZE);
+
+function download_image() {
+    let drawingArea = document.querySelector('#grid-container');
+    //use html2canvas
+    html2canvas(document.body).then(function(canvas) {
+        document.body.appendChild(canvas);
+    });
+    const imgData = drawingArea.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = imgData;
+    a.download = 'etch-a-sketch.png';
+    a.click();
+}
 
 function change_size(input) {
     draw_grid(Math.abs(input));
@@ -101,4 +114,3 @@ function hide_grid_lines() {
     draw_grid(current_size);
 
 }
-
